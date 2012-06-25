@@ -590,7 +590,7 @@
   </action>
   <action name="ShowHideAction">
    <property name="text">
-    <string>Shiw/Hide</string>
+    <string>Show/Hide</string>
    </property>
   </action>
  </widget>
