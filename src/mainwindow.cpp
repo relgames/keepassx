@@ -215,6 +215,8 @@ void KeepassMainWindow::setupConnections(){
 	connect(DetailView,SIGNAL(anchorClicked(const QUrl&)),this,SLOT(OnDetailViewUrlClicked(const QUrl&)));
 	connect(WorkspaceLockedWidget.Button_Unlock,SIGNAL(clicked()),this,SLOT(OnUnLockWorkspace()));
 	connect(WorkspaceLockedWidget.Button_CloseDatabase,SIGNAL(clicked()),this,SLOT(OnLockClose()));
+
+    connect(ShowHideAction,SIGNAL(triggered()), this, SLOT(OnShowHide()));
 }
 
 void KeepassMainWindow::setupToolbar(){
@@ -333,7 +335,8 @@ void KeepassMainWindow::setupMenus(){
 #endif
 
 	SysTrayMenu = new QMenu(APP_DISPLAY_NAME,this);
-	SysTrayMenu->addAction(FileUnLockWorkspaceAction);
+    SysTrayMenu->addAction(ShowHideAction);
+    SysTrayMenu->addAction(FileUnLockWorkspaceAction);
 	SysTrayMenu->addSeparator();
 	SysTrayMenu->addAction(FileExitAction);
 	SysTray->setContextMenu(SysTrayMenu);
@@ -1524,4 +1527,8 @@ void KeepassMainWindow::updateTrayTooltip() {
 void KeepassMainWindow::updateCurrentFile(const QString& filePath) {
 	currentFilePath = filePath;
 	currentFileName = QFileInfo(filePath).fileName();
+}
+
+void KeepassMainWindow::OnShowHide(){
+    OnSysTrayActivated(QSystemTrayIcon::Trigger);
 }

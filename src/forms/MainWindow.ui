@@ -588,6 +588,11 @@
     <string>&amp;Minimize Window</string>
    </property>
   </action>
+  <action name="ShowHideAction">
+   <property name="text">
+    <string>Shiw/Hide</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
