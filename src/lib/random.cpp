@@ -19,7 +19,7 @@
  ***************************************************************************/
 
 #include "random.h"
-
+#include <unistd.h>
 
 #if defined(Q_WS_X11) || defined(Q_WS_MAC)
 	#include <QFile>
