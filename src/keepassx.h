@@ -40,6 +40,8 @@
 #include <cstdlib>
 #include <cmath>
 
+#include <QtGlobal>
+
 #include <QApplication>
 #include <QBitArray>
 #include <QByteArray>

@@ -33,7 +33,7 @@
 class KeepassMainWindow : public QMainWindow, private Ui_MainWindow{
 	Q_OBJECT
 	public:
-		KeepassMainWindow (const QString& ArgFile,bool ArgMin,bool ArgLock,QWidget *parent=0, Qt::WFlags flags=0);
+        KeepassMainWindow (const QString& ArgFile,bool ArgMin,bool ArgLock,QWidget *parent=0, Qt::WindowFlags flags=0);
 		IDatabase* db;
 		inline bool isLocked() { return IsLocked; };
 		inline bool isOpened() { return FileOpen; };

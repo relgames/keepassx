@@ -23,7 +23,7 @@
 #include "mainwindow.h"
 #include "lib/HelperX11.h"
 #include "dialogs/AutoTypeDlg.h"
-#include <QX11Info>
+#include "x11info.h"
 
 AutoTypeGlobal* autoType = NULL;
 

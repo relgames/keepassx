@@ -1,6 +1,10 @@
-
 CONFIG = qt uic resources thread stl warn_on
 QT += xml
+
+greaterThan(QT_MAJOR_VERSION, 4) {
+  QT += widgets
+  DEFINES += HAVE_QT5
+}
 
 *-g++ : QMAKE_CXXFLAGS_WARN_ON += -Wno-sign-compare
 
@@ -34,7 +38,10 @@ win32 : QMAKE_WIN32 = 1
 #-------------------------------------------------------------------------------
 #   Platform Specific: Unix (except MacOS X)
 #-------------------------------------------------------------------------------
-unix : !macx : !isEqual(QMAKE_WIN32,1){
+!macx : !isEqual(QMAKE_WIN32,1){
+        message("Q_WS_X11")
+        DEFINES += Q_WS_X11
+
 	isEmpty(PREFIX): PREFIX = /usr
 	!isEqual(AUTOTYPE,0){
 		DEFINES += AUTOTYPE
@@ -258,7 +265,8 @@ HEADERS += main.h \
            plugins/interfaces/IFileDialog.h \
            plugins/interfaces/IIconTheme.h \
            plugins/interfaces/IGnomeInit.h \
-           plugins/interfaces/IKdeInit.h
+           plugins/interfaces/IKdeInit.h \
+    lib/x11info.h
 
 SOURCES += main.cpp \
            mainwindow.cpp \
@@ -313,7 +321,8 @@ SOURCES += main.cpp \
            import/Import_PwManager.cpp \
            export/Export.cpp \
            export/Export_KeePassX_Xml.cpp \
-           export/Export_Txt.cpp
+           export/Export_Txt.cpp \
+    lib/x11info.cpp
 
 isEqual(PRECOMPILED,0) {
 	QMAKE_CXXFLAGS += -include keepassx.h

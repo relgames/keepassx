@@ -27,7 +27,7 @@ KeepassApplication::KeepassApplication(int& argc, char** argv) : QApplication(ar
 
 bool KeepassApplication::x11EventFilter(XEvent* event){
 	if (autoType == NULL)
-		return QApplication::x11EventFilter(event);
+        return true;
 	
 #ifdef GLOBAL_AUTOTYPE
 	if (remove_invalid == 0) {
@@ -52,5 +52,5 @@ bool KeepassApplication::x11EventFilter(XEvent* event){
 		remove_invalid = 0;
 	}
 	
-	return QApplication::x11EventFilter(event);
+    return true;
 }

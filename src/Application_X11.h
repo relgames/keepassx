@@ -20,6 +20,10 @@
 #ifndef APPLICATION_X11_H
 #define APPLICATION_X11_H
 
+#include <X11/Xlib.h>
+#include <X11/extensions/XInput2.h>
+#include <X11/extensions/Xge.h>
+
 class KeepassApplication : public QApplication
 {
 	Q_OBJECT

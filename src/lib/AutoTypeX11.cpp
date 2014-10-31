@@ -22,9 +22,18 @@
 
 #include "mainwindow.h"
 #include "lib/HelperX11.h"
-#include <QX11Info>
+#include "x11info.h"
+
+#ifndef FALSE
+#define FALSE (0)
+#endif
+#ifndef TRUE
+#define TRUE (!FALSE)
+#endif
+
 
 #ifndef GLOBAL_AUTOTYPE
+
 AutoType* autoType = NULL;
 
 void initAutoType(KeepassMainWindow* mainWin) {

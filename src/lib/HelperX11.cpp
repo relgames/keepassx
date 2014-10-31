@@ -18,8 +18,8 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include "x11info.h"
 #include "HelperX11.h"
-#include <QX11Info>
 
 #ifdef GLOBAL_AUTOTYPE
 #include "AutoTypeGlobalX11.h"
